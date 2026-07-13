@@ -1,0 +1,134 @@
+---
+title: "Iris Data Quality and Exploratory Analysis" 
+author: "Akash Bhardwaj" 
+date: today 
+format:
+  html: 
+    toc: true 
+    toc-depth: 2 
+    theme: cosmo 
+execute: 
+  echo: false
+  warning: false 
+  message: false
+--- 
+
+## Project objective 
+ 
+This report demonstrates a reproducible workflow for inspecting, checking and 
+visualising a structured biological dataset in R. 
+ 
+The analysis uses the built-in `iris` dataset, which contains measurements from 
+150 flowers across three species: setosa, versicolor and virginica. 
+ 
+## Packages and setup 
+ 
+```{r} 
+library(tidyverse) 
+library(janitor) 
+library(skimr) 
+library(here) 
+ 
+iris_data <- iris %>% 
+clean_names() 
+``` 
+ 
+## Data overview 
+ 
+```{r} 
+head(iris_data) 
+str(iris_data) 
+``` 
+ 
+The dataset contains 150 observations and five variables: sepal length, sepal 
+width, petal length, petal width and species. 
+ 
+## Data-quality checks 
+ 
+### Missing values 
+ 
+```{r} 
+missing_values <- iris_data %>% 
+ summarise(across(everything(), ~ sum(is.na(.)))) %>% 
+ pivot_longer( 
+   cols = everything(), 
+   names_to = "variable", 
+   values_to = "missing_values" 
+ ) 
+ 
+missing_values 
+``` 
+ 
+No missing values were identified. 
+ 
+### Duplicate rows 
+ 
+```{r} 
+duplicate_rows <- sum(duplicated(iris_data)) 
+duplicate_rows 
+``` 
+ 
+One duplicated row was identified. It was retained because the available dataset 
+documentation does not indicate whether it represents a data-entry duplication 
+or a legitimate repeated observation. 
+ 
+## Summary statistics 
+ 
+```{r} 
+summary_stats <- iris_data %>% 
+ group_by(species) %>% 
+ summarise( 
+   number_of_samples = n(), 
+   mean_sepal_length = mean(sepal_length), 
+   sd_sepal_length = sd(sepal_length), 
+   mean_petal_length = mean(petal_length), 
+   sd_petal_length = sd(petal_length), 
+   .groups = "drop" 
+ ) 
+ 
+summary_stats 
+``` 
+ 
+Each species has 50 observations. Mean sepal length and mean petal length are 
+lowest in setosa and highest in virginica. 
+ 
+## Visualisation 
+ 
+```{r} 
+sepal_plot <- ggplot( 
+ iris_data, 
+ aes(x = species, y = sepal_length, fill = species) 
+) + 
+ geom_boxplot(alpha = 0.8) + 
+ labs( 
+   title = "Sepal Length by Iris Species", 
+   x = "Species", 
+   y = "Sepal Length (cm)" 
+ ) + 
+ theme_minimal() + 
+ theme(legend.position = "none") 
+ 
+sepal_plot 
+``` 
+ 
+The boxplot shows differences in sepal length across the three species, with 
+virginica showing the largest values and setosa the smallest. 
+ 
+## Limitations 
+ 
+This is a training dataset rather than a clinical or experimental biomedical 
+dataset. It does not include metadata on experimental conditions, batch effects, 
+measurement methods or participant-level characteristics. Therefore, the results 
+demonstrate an analytical workflow but should not be interpreted as evidence for 
+a biological or clinical conclusion. 
+ 
+## Conclusion 
+ 
+This project established a reproducible R workflow for data inspection, 
+missing-value assessment, duplicate checking, descriptive statistics and 
+visualisation. These steps form the foundation for quality-controlled biomedical 
+data analysis. 
+
+---
+
+## 
