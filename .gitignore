@@ -10,3 +10,4 @@ data_raw/
 *.fastq.gz 
 *.bam 
 *.bai 
+.Rproj.user/
