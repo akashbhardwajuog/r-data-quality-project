@@ -4,7 +4,6 @@
 .DS_Store 
 data_raw/ 
 *.xlsx 
-*.csv 
 *.tsv 
 *.fastq 
 *.fastq.gz 
