@@ -28,17 +28,17 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="reports_iris_data_quality_report_files/libs/clipboard/clipboard.min.js"></script>
-<script src="reports_iris_data_quality_report_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="reports_iris_data_quality_report_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="reports_iris_data_quality_report_files/libs/quarto-html/popper.min.js"></script>
-<script src="reports_iris_data_quality_report_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="reports_iris_data_quality_report_files/libs/quarto-html/anchor.min.js"></script>
-<link href="reports_iris_data_quality_report_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="reports_iris_data_quality_report_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="reports_iris_data_quality_report_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="reports_iris_data_quality_report_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="reports_iris_data_quality_report_files/libs/bootstrap/bootstrap-67270d1595a62d14f123c043d4fb2f18.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="iris_data_quality_report_files/libs/clipboard/clipboard.min.js"></script>
+<script src="iris_data_quality_report_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="iris_data_quality_report_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="iris_data_quality_report_files/libs/quarto-html/popper.min.js"></script>
+<script src="iris_data_quality_report_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="iris_data_quality_report_files/libs/quarto-html/anchor.min.js"></script>
+<link href="iris_data_quality_report_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="iris_data_quality_report_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="iris_data_quality_report_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="iris_data_quality_report_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="iris_data_quality_report_files/libs/bootstrap/bootstrap-67270d1595a62d14f123c043d4fb2f18.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -57,6 +57,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#data-quality-checks" id="toc-data-quality-checks" class="nav-link" data-scroll-target="#data-quality-checks">Data-quality checks</a></li>
   <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary statistics</a></li>
   <li><a href="#visualisation" id="toc-visualisation" class="nav-link" data-scroll-target="#visualisation">Visualisation</a></li>
+  <li><a href="#principal-component-analysis" id="toc-principal-component-analysis" class="nav-link" data-scroll-target="#principal-component-analysis">Principal Component Analysis</a></li>
   <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
@@ -176,12 +177,25 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="reports_iris_data_quality_report_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="iris_data_quality_report_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>The boxplot shows differences in sepal length across the three species, with virginica showing the largest values and setosa the smallest.</p>
+</section>
+<section id="principal-component-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="principal-component-analysis">Principal Component Analysis</h2>
+<p>Principal component analysis (PCA) was used to reduce the four correlated flower measurements into components that capture the largest sources of variation.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="iris_data_quality_report_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="limitations" class="level2">
 <h2 class="anchored" data-anchor-id="limitations">Limitations</h2>

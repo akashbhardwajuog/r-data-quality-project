@@ -113,7 +113,39 @@ sepal_plot
  
 The boxplot shows differences in sepal length across the three species, with 
 virginica showing the largest values and setosa the smallest. 
+
+## Principal Component Analysis 
  
+Principal component analysis (PCA) was used to reduce the four correlated flower 
+measurements into components that capture the largest sources of variation. 
+ 
+```{r} 
+ 
+iris_numeric <- iris_data %>% 
+ select(sepal_length, sepal_width, petal_length, petal_width) 
+ 
+iris_scaled <- scale(iris_numeric) 
+ 
+iris_pca <- prcomp(iris_scaled, center = TRUE, scale. = TRUE) 
+ 
+pca_scores <- as.data.frame(iris_pca$x) %>% 
+ mutate(species = iris_data$species) 
+ 
+pca_plot <- ggplot( 
+ pca_scores, 
+ aes(x = PC1, y = PC2, colour = species) 
+) + 
+ geom_point(size = 3, alpha = 0.8) + 
+ labs( 
+   title = "Principal Component Analysis of Iris Measurements", 
+   x = "Principal Component 1", 
+   y = "Principal Component 2", 
+   colour = "Species" 
+ ) + 
+ theme_minimal() 
+ 
+pca_plot 
+``` 
 ## Limitations 
  
 This is a training dataset rather than a clinical or experimental biomedical 
