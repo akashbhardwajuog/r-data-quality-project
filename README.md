@@ -39,7 +39,9 @@ This project uses the built-in `iris` dataset to demonstrate a reproducible R wo
 - data inspection and variable-name standardisation; 
 - missing-value and duplicate-row checks; 
 - descriptive statistics by species; 
-- boxplot visualisation; 
+- boxplot visualisation;
+- Principal component analysis (PCA) of standardised sepal and petal measurements. 
+- PCA score visualisation to assess clustering and separation between iris species.
 - documentation of interpretation and limitations. 
  
 ## Key findings 
@@ -47,7 +49,11 @@ This project uses the built-in `iris` dataset to demonstrate a reproducible R wo
 - No missing values were identified. 
 - One duplicate row was detected and retained because its origin could not be confirmed. 
 - Mean sepal length and petal length were lowest in setosa and highest in virginica. 
- 
+
+ ## Additional outputs 
+ - `outputs/figures/iris_pca_plot.png`: PCA scatterplot of PC1 versus PC2. 
+ - `outputs/tables/iris_pca_scores.csv`: PCA scores for each sample.
+
 ## Report 
  
 The rendered Quarto report is available in: 
